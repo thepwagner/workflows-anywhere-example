@@ -1,1 +1,10 @@
-TODO:
+name: foo
+on:
+  push:
+    paths:
+      - foo/**
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello foo'
