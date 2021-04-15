@@ -1,0 +1,18 @@
+name: 'update workflows'
+on:
+  push:
+    paths:
+      - **/.github/workflows/*.yml
+      - **/.github/workflows/*.yaml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: thepwagner/workflows-anywhere@main
+      - uses: github-actions-x/commit@v2.8
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          push-branch: main
+          commit-message: 'Recompiled workflows'
