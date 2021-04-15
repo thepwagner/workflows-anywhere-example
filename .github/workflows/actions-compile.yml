@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: thepwagner/workflows-anywhere@main
-      - uses: github-actions-x/commit@v2.8
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          push-branch: main
-          commit-message: 'Recompiled workflows'
+          fetch-depth: 0
+      - uses: thepwagner/workflows-anywhere@main
+      - run: |
+         git commit -m'remapped dependencies'
+         git push
