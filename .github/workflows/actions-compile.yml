@@ -16,5 +16,6 @@ jobs:
       - run: |
          git config --global user.email "noreply@github.com"
          git config --global user.name "actions-anywhere"
-         git commit -am'remapped dependencies'
+         git add .github/workflows
+         git commit -m'remapped workflows' --allow-empty
          git push
